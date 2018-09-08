@@ -7,7 +7,13 @@
     </head>
 <body>
     <div id="content" ng-app="MyApp" ng-controller="MainController">
-        <h1>{{abc}}</h1>
+        <input type="text" ng-model="searchText" />
+        <ul>
+            <li ng-repeat='person in people | filter:searchText' ng-show='person.live == true'>#{{person.id}} {{person.name}}</li>
+        </ul>
+        <ul>
+            <li ng-repeat='person in people | filter:searchText' ng-hide='person.live == false'>#{{person.id}} {{person.name}}</li>
+        </ul>
     </div>
 </body>
 </html>
